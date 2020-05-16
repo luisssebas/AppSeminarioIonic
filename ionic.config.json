@@ -1,0 +1,8 @@
+{
+  "name": "MyCamara",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Foto y Video
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+<ion-card>
+  <ion-card-title>
+    Lista de fotos y videos 
+  </ion-card-title>
+  <ion-list>
+    <ion-item-sliding *ngFor="let f of files">
+      <ion-item (click)="openFile(f)">
+        <ion-icon name="image" slot="start" *ngIf="f.name.endsWith('jpg')"></ion-icon>
+        <ion-icon name="videocam" slot="start" *ngIf="f.name.endsWith('MOV') || f.name.endsWith('mp4')"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          {{ f.name }}
+          <p>{{ f.fullPath }}</p>
+        </ion-label>
+      </ion-item>
+ 
+      <ion-item-options side="start">
+        <ion-item-option (click)="deleteFile(f)" color="danger">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-button expand="full" (click)="selectMedia()">
+    <ion-icon slot="start" name="document"></ion-icon>
+    Agregar Foto o video
+  </ion-button>
+</ion-card>
+</ion-content>
+ 
+<ion-footer>
+  <ion-toolbar color="dark" >
+    <ion-button >
+      <ion-icon slot="start" name="document"></ion-icon>
+      Fotos y videos
+    </ion-button>
+    <ion-button [routerLink]="['/albums']">
+      <ion-icon slot="start" name="document"></ion-icon>
+      Web Services
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
